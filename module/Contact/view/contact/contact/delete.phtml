@@ -1,0 +1,25 @@
+<?php
+// module/Contact/view/contact/contact/delete.phtml:
+
+$title = 'Delete contact';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<p>Are you sure that you want to delete
+'<?php echo $this->escapeHtml($contact->title); ?>' by
+'<?php echo $this->escapeHtml($contact->artist); ?>'?
+</p>
+<?php
+$url = $this->url('contact', array(
+'action' => 'delete',
+'id' => $this->id,
+));
+?>
+<form action="<?php echo $url; ?>" method="post">
+<div>
+<input type="hidden" name="id" value="<?php echo (int) $contact->id; ?>" />
+<input type="submit" name="del" value="Yes" />
+<input type="submit" name="del" value="No" />
+</div>
+</form>
